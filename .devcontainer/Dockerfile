@@ -8,3 +8,6 @@ RUN groupadd -g $GID $GROUPNAME && \
 	useradd -m -s /bin/bash -u $UID -g $GID $USERNAME
 
 RUN mkdir -p /workspaces && chown $USERNAME:$GROUPNAME /workspaces
+
+USER beam
+RUN ./gradlew :checkSetup
