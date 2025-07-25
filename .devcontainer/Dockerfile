@@ -1,6 +1,4 @@
-# syntax = devthefuture/dockerfile-x
-
-FROM ../dev-support/docker/Dockerfile
+FROM beam-build
 
 ARG HOST_USER_ID
 ARG HOST_USER_GID
@@ -10,3 +8,4 @@ ENV HOST_USER_GID=$HOST_USER_GID
 
 RUN /user_mapping.sh
 
+RUN touch /root/built
