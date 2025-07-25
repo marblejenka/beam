@@ -1,9 +1,12 @@
 {
 	"name": "apache beam",
 	"build": {
-		"dockerfile": "Dockerfile",
-		"options": [ "--pull" ]
-	},
-  "workspaceFolder": "/workspace",
-  "remoteUser": "beam"
+		"dockerfile": "./Dockerfile",
+		"args": {
+			"HOST_USER_ID": "${localEnv:VSCODE_USER_ID}",
+			"HOST_USER_GID": "${localEnv:VSCODE_GROUP_ID}"
+		}
+	}
+	,
+	"remoteUser": "${localEnv:VSCODE_USER_ID}"
 }

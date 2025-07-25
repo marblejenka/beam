@@ -1,13 +1,12 @@
-FROM ghcr.io/marblejenka/devcontainers/beam:latest
+# syntax = devthefuture/dockerfile-x
 
-# ARG USERNAME=beam
-# ARG GROUPNAME=beam
-# ARG UID=1001
-# ARG GID=1001
-# RUN groupadd -g $GID $GROUPNAME && \
-# 	useradd -m -s /bin/bash -u $UID -g $GID $USERNAME
+FROM ../dev-support/docker/Dockerfile
 
-# RUN mkdir -p /workspaces && chown $USERNAME:$GROUPNAME /workspaces
+ARG HOST_USER_ID
+ARG HOST_USER_GID
 
-# USER beam
-# RUN ./gradlew :checkSetup
+ENV HOST_USER_ID=$HOST_USER_ID
+ENV HOST_USER_GID=$HOST_USER_GID
+
+RUN /user_mapping.sh
+
